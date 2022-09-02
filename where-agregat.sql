@@ -1,0 +1,30 @@
+SELECT * FROM `siswa` LIMIT 10;
+SELECT * FROM `siswa` WHERE tempat_lahir='BANDUNG';
+SELECT * FROM `siswa` WHERE jenis_kelamin ='P';
+SELECT * FROM `siswa` WHERE alamat ='kalijati';
+SELECT * FROM `siswa` WHERE alamat ='kalijati' AND tempat_lahir ='Subang';
+SELECT * FROM `siswa` WHERE alamat ='kalijati' OR tempat_lahir ='Subang';
+SELECT * FROM `siswa` WHERE nilai >78;
+SELECT * FROM `siswa` WHERE nilai <78;
+SELECT * FROM `siswa` WHERE tempat_lahir!= 'subang';
+SELECT * FROM `siswa` WHERE tempat_lahir!= 'subang' AND nilai >=80 AND alamat='cijambe';
+SELECT * FROM `siswa` WHERE nilai BETWEEN 60 AND 80;
+SELECT * FROM `siswa` WHERE tanggal_lahir BETWEEN '2005-03-01'AND '2005-10-01';
+SELECT * FROM `siswa` WHERE Month(tanggal_lahir) = '09';
+SELECT * FROM `siswa` ORDER BY nilai ASC;
+SELECT * FROM `siswa` ORDER BY nilai DESC;
+SELECT * FROM `siswa` WHERE jenis_kelamin ='l' AND tempat_lahir='SUBANG' ORDER BY nilai DESC;
+SELECT * FROM `siswa` WHERE jenis_kelamin ='P' AND nilai BETWEEN 50 AND 70 ORDER BY nilai DESC;
+SELECT * FROM `siswa` WHERE nama LIKE'A%';
+SELECT * FROM `siswa` 
+WHERE nama LIKE'%i';
+SELECT * FROM `siswa` WHERE nama LIKE'a%a';
+SELECT * FROM `siswa` WHERE nama LIKE'%se%';
+SELECT tempat_lahir FROM `siswa` GROUP BY tempat_lahir;
+SELECT tempat_lahir, COUNT(tempat_lahir)FROM `siswa` GROUP BY tempat_lahir;
+SELECT tempat_lahir, COUNT(tempat_lahir)FROM `siswa` GROUP BY tempat_lahir;
+SELECT jenis_kelamin, COUNT(jenis_kelamin) AS jumlah_orang FROM `siswa` GROUP BY tempat_lahir;
+
+SELECT jenis_kelamin, MAX(nilai) AS nilai_tertinggi, MIN(nilai)AS nilai_terendah, AVG(nilai) AS nilai_teratas, SUM(nilai) AS nilai_total FROM `siswa` GROUP BY jenis_kelamin;
+ELECT * FROM `siswa` WHERE MONTH(tanggal_lahir) ="09";
+SELECT * FROM `siswa` WHERE YEAR(tanggal_lahir) ="2006";

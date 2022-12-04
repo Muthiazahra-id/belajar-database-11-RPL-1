@@ -1,0 +1,52 @@
+inner join
+'' untuk insert
+`` penamaan feild , database,dan table
+
+
+CREATE table `job`(
+     `job` char(3) PRIMARY KEY,
+    `name_jobs`VARCHAR(100)
+    
+);
+
+inner join
+gabungkan dua table 
+inner adalah yang bersangkutan
+
+//tanpa null atau juga menampilkan data yang tidak ada jobs ya.
+SELECT emplo.*,job.* FROM emplo JOIN job ON job.id_job=emplo.id_job;
+
+//menampilkan data yang orang yang belum mempunyai jabatan
+
+SELECT emplo.*,job.* FROM emplo LEFT JOIN job ON job.id_job=emplo.id_job;
+
+//mengetahui jabatan yang kosong
+
+SELECT emplo.*,job.* FROM emplo RIGHT JOIN job ON job.id_job=emplo.id_job;
+
+//MENAMPILKAN SIAPA YANG BELUM PUNYA JABATAN DAN SIAPA NAMANYA YANG NUUL
+
+SELECT emplo.full_name, job.name_jobs FROM emplo LEFT join job ON job.id_job = emplo.id_job WHERE emplo.id_job IS NULL;
+
+//menampilkan full name dan name jobs doang
+
+SELECT emplo.full_name, job.name_jobs FROM emplo LEFT join job ON job.id_job = emplo.id_job;
+
+
+//menampilkan full name , gender dan name jobs
+
+SELECT emplo.full_name, emplo.gender,job.name_jobs
+FROM emplo
+LEFT JOIN job ON job.id_job = emplo.id_job
+WHERE job.name_jobs = 'FrontEnd Developer
+'
+OR job.name_jobs = 'BackEnd Developer
+';
+
+//menampilkan yang hurup nya di tengah
+
+SELECT emplo.full_name, emplo.gender,job.name_jobs FROM emplo LEFT JOIN job ON job.id_job = emplo.id_job WHERE emplo.full_name LIKE'%A%';
+
+//Menampilkan hurup di depan
+
+SELECT emplo.*,job.* FROM emplo JOIN job ON job.id_job= emplo.id_job WHERE emplo.full_name LIKE 'a%';
